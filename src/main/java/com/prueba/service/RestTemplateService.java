@@ -10,29 +10,24 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RestTemplateService {
 
-   private final RestTempalete restTempalete;
+   private final RestTemplate restTemplate = new RestTemplate();
 
-   @Autowired
-   public RestTemplateService(RestTempalete restTempalete) {
-      this.restTempalete = restTempalete;
-   }
+   public TemplateDto consumirApi() {
+      String url = "https://md52e.wiremockapi.cloud/template";
 
-   public String consumirApi() {
       HttpHeaders headers = new HttpHeaders();
-      headers.set(restTempalete.getToken(), restTempalete.getKey());
+      headers.set("Authorization", "Bearer 12345");
 
       HttpEntity<String> entity = new HttpEntity<>(headers);
 
-      RestTemplate restTemplate = restTempalete.getRestTemplate();
-      String url = restTempalete.getApiUrl();
-
-      ResponseEntity<String> response = restTemplate.exchange(
+      ResponseEntity<TemplateDto> response = restTemplate.exchange(
               url,
               HttpMethod.GET,
               entity,
-              String.class
+             TemplateDto.class
       );
-      System.out.println("JSON crudo recibido: " + response.getBody());
+
       return response.getBody();
    }
 }
+
