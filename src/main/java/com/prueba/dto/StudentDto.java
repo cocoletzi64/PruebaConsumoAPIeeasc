@@ -9,5 +9,5 @@ public class StudentDto {
     private String lastName;
     private String secondLastName;
     private int groupId;
-    private String groupName; 
+    private String groupName;
 }

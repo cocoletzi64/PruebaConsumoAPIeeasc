@@ -17,7 +17,7 @@ public class RestTemplateController {
     @Autowired
     RestTemplateService restTemplateService;
 
-    @GetMapping(value = "/template", produces = "application/json")
+    @GetMapping(value = "/template")
     public TemplateDto getTemplate() {
         return restTemplateService.consumirApi();
     }

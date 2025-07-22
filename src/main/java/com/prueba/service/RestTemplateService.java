@@ -1,8 +1,6 @@
 package com.prueba.service;
-
 import com.prueba.dto.TemplateDto;
 import com.prueba.model.RestTempalete;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -10,13 +8,15 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RestTemplateService {
 
-   private final RestTemplate restTemplate = new RestTemplate();
+  RestTemplate restTemplate = new RestTemplate();
 
    public TemplateDto consumirApi() {
-      String url = "https://md52e.wiremockapi.cloud/template";
+      RestTempalete restTemp=new RestTempalete();
+
+      String url = restTemp.getApiUrl();
 
       HttpHeaders headers = new HttpHeaders();
-      headers.set("Authorization", "Bearer 12345");
+      headers.set(restTemp.getToken(), restTemp.getKey());
 
       HttpEntity<String> entity = new HttpEntity<>(headers);
 
