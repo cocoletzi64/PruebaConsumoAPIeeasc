@@ -36,8 +36,6 @@ interface TemplateApiData {
   message: string;
 }
 
-// Este tipo ya no es estrictamente necesario si solo visualizas.
-// Lo mantenemos si en el futuro decides reintroducir formularios CRUD para otro endpoint.
 interface NuevoStudentForm {
   id: number | null;
   name: string;
