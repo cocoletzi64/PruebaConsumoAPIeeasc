@@ -284,13 +284,6 @@ function Duenios() {
           )}
         </>
       )}
-
-      {/* --------------------------------------------------------------------------------------
-        TODO EL CÓDIGO RELACIONADO CON EL FORMULARIO DE AGREGAR/EDITAR/BUSCAR ESTÁ ELIMINADO.
-        Si en el futuro necesitas esta funcionalidad, deberás volver a implementarla con un
-        backend que la soporte.
-        --------------------------------------------------------------------------------------
-      */}
     </div>
   );
 }
